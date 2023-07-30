@@ -1,0 +1,21 @@
+<div class="card" *ngIf="album">
+    <img class="card-img-top" src="./assets/images/default_image.png" alt="Group Music">
+    <div class="card-body">
+        <h5 class="card-title">{{ album.title }}</h5>
+        <p class="card-text">Name :{{ album.name }}</p>
+        <a href="#" class="btn btn-primary">Play >> </a>
+    </div>
+    <!-- SI nous avons des lists -->
+    <div *ngIf="songs; then ifblock; else elseblock"></div>
+    <ng-template #ifblock>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let song of songs">{{ song }}</li>
+        </ul>
+    </ng-template>
+    <ng-template #elseblock>
+        <ul class="list-group">
+            <li class="list-group-item">Il n'y a pas de liste pour cet album</li>
+        </ul>
+    </ng-template>
+</div>
+<!-- {{ album | json }} -->

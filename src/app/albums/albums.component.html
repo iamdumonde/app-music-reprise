@@ -1,0 +1,32 @@
+<h1>{{ titlePage }}</h1>
+<div class="row content">
+    <div class="col-sm-4 video">
+        <!-- ALbumDetails communication parent vers enfant -->
+        <app-album-details [album]="selectedAlbum"></app-album-details>
+    </div>
+    <div class="col-sm-8 music" *ngIf="albums">
+        <div class="card" *ngFor="let album of albums">
+            <div class="card-header">
+                {{ album.ref }}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ album.title }}</h5>
+                <p class="card-text">{{ album.description }}</p>
+                <div class="div_tags" *ngIf="album.tags">
+                    <span *ngFor="let tag of album.tags" class="btn btn-outline-white btn-primary span_tags"
+                        href="#" role="button">{{ tag }}</span>
+                </div>
+                <a class="btn btn-outline-primary" href="#" role="button">fr</a>
+                
+                <img *ngIf="album.like" class="glyph-icon svg-px" src="../../assets/svg/si-glyph-heart.svg" />
+                <small>{{ album.like }}</small>
+                <img *ngIf="album.duration" class="glyph-icon svg-px" src="../../assets/svg/si-glyph-timer.svg" />
+                <small>{{ album.duration }}min</small>
+
+                <div class="btn-of-choice">
+                    <button class="btn btn-outline-dark" (click)="onSelect(album)">My Choice</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

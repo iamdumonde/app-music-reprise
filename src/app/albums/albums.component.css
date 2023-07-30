@@ -1,0 +1,13 @@
+div.card-body .svg-px{
+    width: 16px;
+    margin-inline: 0.2em;
+}
+
+.div_tags {
+    margin-bottom: 0.5em;
+}
+
+.div_tags .span_tags {
+    margin-right: 0.5em;
+    margin-block: 0.1em;
+}
